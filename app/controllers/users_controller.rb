@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :authorize
+  def new
+  end
 
   def create
     user = User.new(user_params)
@@ -10,9 +11,6 @@ class UsersController < ApplicationController
     else
       redirect_to '/signup'
     end
-  end
-
-  def new
   end
 
   private
