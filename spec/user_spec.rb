@@ -56,7 +56,9 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
     
     it 'should return the user' do 
-      expect(User.authenticate_with_credentials("pouyan.zarbafian@hotmail.com", "123")).to include({first_name: "pouyan", last_name: "zarbafian", email:"pouyan.zarbafian@homtail.com", password: "123"})
+      @user1 = User.new(:first_name => 'firstName', :last_name => 'lastName', :email => 'test@test.com', :password => 'password',:password_confirmation => 'password')
+      @user1.save
+      expect(User.authenticate_with_credentials("TEST@TEST.COM", "password")).to_not be_nil
     end
   end
 end
