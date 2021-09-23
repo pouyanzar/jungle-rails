@@ -17,13 +17,12 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
   scenario "They see one product" do
     # ACT
     visit root_path
-    save_screenshot
-    # abort page.find_link("Details »", match: :first).inspect
-    page.find('a.btn.btn-default.pull-right').trigger('click')
+    page.find('.pull-right').click
+
     # DEBUG
-    # save_screenshot
+    save_screenshot
 
     # VERIFY
-    expect(page).to have_css 'article.product-details'
+    expect(page).to have_css 'article.product'
   end
 end
